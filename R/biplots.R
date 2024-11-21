@@ -12,7 +12,7 @@ biplots = function(model,                  # bayes_ammi object
                    thin = 0.2,             # percentage of interations to sample
                    pb = 0.05,              # significance level for contorns
                    plot_stable = TRUE ,    # plot stable instances
-                   plot_nonstable = TRUE,  # plot non-stable instances
+                   plot_unstable = TRUE,   # plot unstable instances
                    ncolors = 5){           # how many different colors for plotting instances?
 
   # process alphas1
@@ -166,7 +166,7 @@ biplots = function(model,                  # bayes_ammi object
                        max.overlaps = nrow(summary))
   }
 
-  if (plot_nonstable){
+  if (plot_unstable){
     base_plot = base_plot +
       geom_polygon(data = filter(data.stable, !stable),
                    alpha=0.2,color="black")+
@@ -183,10 +183,10 @@ biplots = function(model,                  # bayes_ammi object
 data(Maiz)
 fm1 <- bayes_ammi( .data = Maiz , .y = y , .gen = entry , .env = site , .rep = rep , .nIter = 200)
 
-output_05 = biplots(fm1, plot_stable = TRUE, plot_nonstable = TRUE, pb = 0.05)
+output_05 = biplots(fm1, plot_stable = TRUE, plot_unstable = TRUE, pb = 0.05)
 output_05$biplot
 
-output_95 = biplots(fm1, plot_stable = TRUE, plot_nonstable = TRUE, pb = 0.95)
+output_95 = biplots(fm1, plot_stable = TRUE, plot_unstable = TRUE, pb = 0.95)
 output_95$biplot
 
 
