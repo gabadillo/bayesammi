@@ -1,4 +1,4 @@
-Package: bayesammi
+Package: bayesammi_testing
 Type: Package
 Title: Bayesian Estimation of the Additive Main Effects and Multiplicative Interaction Model
 Version: 0.3.0
